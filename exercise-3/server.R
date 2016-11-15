@@ -15,9 +15,9 @@ joined.data <- joined.data %>% mutate(ratio = votes/population * 100000)
 
 # Start shinyServer
 shinyServer(function(input, output) { 
-  
-  # Render a plotly object that returns your map
-  output$map <- renderPlotly({ 
-      return(BuildMap(joined.data, 'population'))
-  })
+    
+    # Render a plotly object that returns your map
+    output$map <- renderPlotly({ 
+        return(BuildMap(joined.data, input$mapvar))
+    })
 })
